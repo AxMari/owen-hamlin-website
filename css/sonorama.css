@@ -1224,60 +1224,61 @@ p.user, p.timePosted, p.interact{display: none;}
 .controls label{color: #fff;}
 
 /* Social Footer */
-.clear{clear: both;}
-.social-footer{
-	width: 100%;
-	height: auto;
-	margin-bottom: 75px;
+/* Social Footer */
+.clear { clear: both; }
+.social-footer {
+  width: 100%;
+  height: auto;
+  margin-bottom: 75px;
 }
-.footer-container{
-	width: 630px;
-	margin: auto;	
+.footer-container {
+  width: 630px;
+  margin: auto;
 }
-.footer-container .social-ico{
-	width: 140px;
-	height: 140px;
-	background-color: #434141;
-	cursor: pointer;
-	float: left;
-	margin: 0 35px;
-	
-	-webkit-transition: all 0.1s ease-out;
-	-moz-transition: all 0.1s ease-out;
-	-o-transition: all 0.1s ease-out;
-	transition: all 0.1s ease-out;
-	
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-	transform: rotate(45deg);
+.footer-container .social-ico {
+  width: 140px;
+  height: 140px;
+  background-color: #434141;
+  cursor: pointer;
+  float: left;
+  margin: 0 35px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.1s ease-out;
+  transform: rotate(45deg);
 }
-.footer-container .social-ico:after{
-	content:'';
-	background: url("../img/icons/social-icons.png") no-repeat;
-	width: 140px;
-	height: 140px;
-	position: absolute;
-	display: inline-block;
-	
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	transform: rotate(-45deg);
+.footer-container .social-ico:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
-.footer-container .social-ico:hover{background-color: #c3121c;}
-.footer-container .social-ico:nth-child(4){
-	margin-left: 140px;
-	margin-top: -30px;
+
+/* Individual PNG backgrounds for each social */
+.footer-container .social-ico.s-tiktok:after {
+  background-image: url("../img/icons/socials/tiktok.png");
 }
-.footer-container .social-ico:nth-child(5){margin-top: -30px;}
-.footer-container .social-ico.s-facebook:after{background-position: -5px -5px;}
-.footer-container .social-ico.s-twitter:after{background-position: -125px -5px;}
-.footer-container .social-ico.s-youtube:after{background-position: -255px -5px;}
-.footer-container .social-ico.s-soundcloud:after{background-position: -5px -135px;}
-.footer-container .social-ico.s-plus:after{background-position: -252px -131px;}
+.footer-container .social-ico.s-spotify:after {
+  background-image: url("../img/icons/socials/spotify.png");
+}
+.footer-container .social-ico.s-youtube:after {
+  background-image: url("../img/icons/socials/youtube.png");
+}
+
+.footer-container .social-ico:hover { background-color: #c3121c; }
+.footer-container .social-ico:nth-child(4) {
+  margin-left: 140px;
+  margin-top: -30px;
+}
+.footer-container .social-ico:nth-child(5) { margin-top: -30px; }
 
 /* Discography Xtras */
 
