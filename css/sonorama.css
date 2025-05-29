@@ -1280,6 +1280,17 @@ p.user, p.timePosted, p.interact{display: none;}
 }
 .footer-container .social-ico:nth-child(5) { margin-top: -30px; }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
 /* Discography Xtras */
 
 .play-btns {

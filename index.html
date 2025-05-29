@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<html class="no-js" lang="en"> <!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
@@ -101,7 +101,7 @@
                 <div class="spacer-box"></div>
                 <ul>
                     <li class="t-current"><i>“His ringing melodies are touched with that <span>Los Angeles
-                                sunshine”</span></i>
+                                sunshine</span>”</i>
                         <br>
                         <span class="author">-Clash</span>
 
@@ -482,35 +482,36 @@
         </div>
     </section>
     <div class="clear"></div>
-
-    <section class="full-wrapper parallax-wrapper contact"> <!-- Contact -->
+    <section class="full-wrapper parallax-wrapper contact" aria-labelledby="contact-heading">
         <div class="parallax" data-velocity="-.3" data-fit="0">
             <div id="anchor04"></div>
             <div class="front-content contact">
-                <h1>Contact Us</h1>
+                <h1 id="contact-heading">Contact Us</h1>
                 <div class="spacer"></div>
 
                 <form id="contact" class="peThemeContactForm form"
-                    action="https://formsubmit.co/f54f4cb31ec5fe29d04838a44e603423" method="POST">
+                    action="https://formsubmit.co/f54f4cb31ec5fe29d04838a44e603423" method="POST" novalidate>
                     <div id="personal" class="bay form-horizontal">
                         <div class="control-group">
                             <div class="controls name">
-                                <h2>Name</h2>
-                                <input class="required span9" type="text" name="author" data-fieldid="0" id="name">
+                                <label for="name"><span>Name</span></label>
+                                <input class="required span9" type="text" name="author" id="name" autocomplete="name"
+                                    required aria-required="true">
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="controls email">
-                                <h2>Email</h2>
-                                <input class="required span9" type="email" name="email" data-fieldid="1" id="email">
+                                <label for="email"><span>Email</span></label>
+                                <input class="required span9" type="email" name="email" id="email" autocomplete="email"
+                                    required aria-required="true">
                             </div>
                         </div>
                         <div class="clear"></div>
                         <div class="control-group">
                             <div class="controls message">
-                                <h2>Message</h2>
-                                <textarea name="message" rows="12" class="required span9" data-fieldid="2"
-                                    id="comments"></textarea>
+                                <label for="comments"><span>Message</span></label>
+                                <textarea name="message" rows="12" class="required span9" id="comments"
+                                    autocomplete="off" required aria-required="true"></textarea>
                             </div>
                         </div>
                         <div class="control-group">
@@ -519,40 +520,43 @@
                             </div>
                         </div>
                     </div>
-                    <div class="notifications">
-                        <div id="contactFormSent" class="formSent alert alert-success">
+                    <div class="notifications" aria-live="polite">
+                        <div id="contactFormSent" class="formSent alert alert-success" role="alert"
+                            style="display:none;">
                             <strong>Your Message Has Been Sent!</strong> Thank you for contacting us.
                         </div>
-                        <div id="contactFormError" class="formError alert alert-error">
-                            <strong>Oops, An error has ocurred!</strong> See the marked fields above to fix the errors.
+                        <div id="contactFormError" class="formError alert alert-error" role="alert"
+                            style="display:none;">
+                            <strong>Oops, An error has occurred!</strong> See the marked fields above to fix the errors.
                         </div>
                     </div>
                 </form>
-
             </div>
             <div class="square-bg"></div>
             <div class="overlay"></div>
         </div>
-    </section><!-- end Contact -->
+    </section>
     <div class="clear"></div>
 
     <section class="social-footer">
         <h1>Social Networks</h1>
         <div class="spacer"></div>
         <div class="footer-container">
-            <a href="https://open.spotify.com/artist/0f1G15KcIPMoyVbwxWoLLJ" target="_blank" rel="noopener">
-                <div class="social-ico s-spotify"></div>
+            <a href="https://open.spotify.com/artist/0f1G15KcIPMoyVbwxWoLLJ" target="_blank" rel="noopener"
+                class="social-ico s-spotify" aria-label="Spotify">
+                <span class="sr-only">Spotify</span>
             </a>
-            <a href="https://www.youtube.com/@owenhamlinmusic" target="_blank" rel="noopener">
-                <div class="social-ico s-youtube"></div>
+            <a href="https://www.youtube.com/@owenhamlinmusic" target="_blank" rel="noopener"
+                class="social-ico s-youtube" aria-label="YouTube">
+                <span class="sr-only">YouTube</span>
             </a>
-            <a href="https://www.tiktok.com/@owenhamlinmusic" target="_blank" rel="noopener">
-                <div class="social-ico s-tiktok"></div>
+            <a href="https://www.tiktok.com/@owenhamlinmusic" target="_blank" rel="noopener" class="social-ico s-tiktok"
+                aria-label="TikTok">
+                <span class="sr-only">TikTok</span>
             </a>
         </div>
         <div class="clear"></div>
     </section>
-
     <!-- Scripts JS -->
     <!--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>-->
