@@ -1,0 +1,23 @@
+<div class="close-btn" title="Close"></div>
+
+<iframe style="border-radius:12px"
+	src="https://open.spotify.com/embed/album/6mwmMxxiHhlDr58r9qWqsN?utm_source=generator&theme=0" width="100%"
+	height="550" frameborder="0" allowfullscreen
+	allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"
+	title="Spotify Album Embed"></iframe>
+
+<script>
+	// Pause all <audio> elements when the Spotify iframe is interacted with
+	const spotifyIframe = document.querySelector('iframe[src*="open.spotify.com"]');
+	if (spotifyIframe) {
+		// Listen for focus or mouse events on the iframe
+		function pauseAllAudio() {
+			document.querySelectorAll('audio').forEach(audio => {
+				if (!audio.paused) audio.pause();
+			});
+		}
+		spotifyIframe.addEventListener('focus', pauseAllAudio);
+		// Also try listening for click on parent div
+		spotifyIframe.parentElement.addEventListener('click', pauseAllAudio);
+	}
+</script>
