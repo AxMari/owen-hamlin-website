@@ -1141,6 +1141,7 @@ p.user, p.timePosted, p.interact{display: none;}
 }
 .p-category.photo{background: url("../img/icons/gallery-photo.png") no-repeat center center;}
 .p-category.video {background: url("../img/icons/gallery-video.png") no-repeat center center;}
+.p-category.news {background: url("../img/icons/gallery-news.png") no-repeat center center;}
 .ch-grid:hover .p-category {opacity: 1;}
 
 /* Contact */
@@ -1271,6 +1272,9 @@ p.user, p.timePosted, p.interact{display: none;}
 }
 .footer-container .social-ico.s-youtube:after {
   background-image: url("../img/icons/socials/youtube.png");
+}
+.footer-container .social-ico.s-instagram:after {
+  background-image: url("../img/icons/socials/instagram.png");
 }
 
 .footer-container .social-ico:hover { background-color: #c3121c; }
@@ -1405,7 +1409,7 @@ p.user, p.timePosted, p.interact{display: none;}
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.25);
+    background: rgba(0,0,0,0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1414,7 +1418,7 @@ p.user, p.timePosted, p.interact{display: none;}
 }
 
 .coming-soon-text {
-    color: #878787;
+    color: #fda527;
     font-size: 4vw;
     font-weight: bold;
     letter-spacing: 0.2em;

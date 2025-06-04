@@ -182,16 +182,4 @@
 		});
 	});
 	
-	/* Twitter */
-	function loadTwitter(){
-			var username='vesper_on'; // Insert your twitter Username
-			var format='json';
-			var url='http://api.twitter.com/1/statuses/user_timeline/'+username+'.'+format+'?callback=?'; // Creamos la URL completa para extraer el último tweet
- 
-			/*$.getJSON(url,function(tweet){ // Geting all tweets
-			$("#last-tweet").html(tweet[0].text); // cogemos el primer tweet y lo introducimos dentro del div con id last-tweet
-	});*/
-	}
-	loadTwitter();
-	
 	 /* end Document Ready Function */
