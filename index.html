@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/isotope.css">
     <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 
     <!--  Color Styles -->
     <link rel="stylesheet" href="css/color/orange.css">
@@ -33,7 +34,24 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+    <div id="tiktok-live-banner" style="
+        width:100%;
+        background:#000000;
+        color:#fff;
+        text-align:center;
+        font-weight:bold;
+        font-size:1.1em;
+        padding:12px 0;
+        position:relative;
+        z-index:10000;
+        letter-spacing:0.5px;
+    ">
+        <a href="https://www.tiktok.com/@owenhamlinmusic" target="_blank" style="vertical-align:middle; color:#fff;">
+            <img src="img/icons/socials/tiktokcolor.png" alt="TikTok"
+                style="height:32px;vertical-align:middle;margin:0 6px 0 0;">
+            LIVE on TikTok most days! <span style="color: #fda527;">Watch now</span>
+        </a>
+    </div>
     <div id="mask">
         <div class="loader">
             <img src="img/icons/loading.gif" alt='loading'>
@@ -55,7 +73,7 @@
         <nav class="main-menu">
             <ul>
                 <li class="current"><a href="#anchor0">Home</a></li>
-                <li><a href="#anchor01">Last News</a></li>
+                <li><a href="#anchor01">Biography</a></li>
                 <!-- <li><a href="#anchor02">Gigs</a></li> -->
                 <li><a href="#anchor02">Discography</a></li>
                 <li><a href="#anchor03">Gallery</a></li>
@@ -68,7 +86,7 @@
             <a class="jump-menu" title="Show navigation">Show navigation</a>
             <ul>
                 <li><a href="#anchor0">Home</a></li>
-                <li><a href="#anchor01">Last News</a></li>
+                <li><a href="#anchor01">Biography</a></li>
                 <!-- <li><a href="#anchor02">Gigs</a></li> -->
                 <li><a href="#anchor02">Discography</a></li>
                 <li><a href="#anchor03">Gallery</a></li>
@@ -144,23 +162,24 @@
 
     <div id="anchor01"></div>
     <div class="main-wrapper last-news-cover-wrapper" style="position:relative;">
-        <section class="section"><!-- Last News -->
-            <h1>Tours and Appearances</h1>
-            <div class="spacer"></div>
-            <div class="last-news-wrapper">
-                <!-- ...existing Last News content... -->
-            </div>
-            <div class="clear"></div>
-            <div id="news-show"></div>
-            <section class="news-window">
-                <div class="news-content"></div><!-- AJAX Dinamic Content -->
-            </section>
-        </section><!-- end Last News -->
+        <section id="about-us" class="full-wrapper parallax-wrapper about-us">
+            <div class="parallax" data-velocity="-.3" data-fit="0">
+                <h1>Biography</h1>
+                <div class="spacer"></div>
+                <div class="sec-content">
+                    <p style="text-align: center;">Owen Hamlin is an emerging American singer-songwriter,
+                        multi-instrumentalist, and producer based in
+                        Los Angeles. With a growing reputation for electrifying live performances and coverage from
+                        tastemaker outlets, he’s quickly becoming one to watch. Owen’s music is defined by its raw
+                        emotional
+                        depth and the seamless fusion of electric and acoustic sounds. His creative process centers on
+                        capturing the spark of initial inspiration—resulting in songs that reflect an honest and
+                        unfiltered
+                        artistic vision.</p>
+                </div>
 
-        <!-- Overlay and Coming Soon text -->
-        <div class="coming-soon-overlay">
-            <span class="coming-soon-text">COMING SOON</span>
-        </div>
+            </div>
+        </section>
     </div>
     <div id="anchor02"></div>
     <div class="main-wrapper">
@@ -373,22 +392,27 @@
     </section><!-- end Gallery Portfolio -->
     <div class="clear"></div>
 
-    <section id="about-us" class="full-wrapper parallax-wrapper about-us">
-        <div class="parallax" data-velocity="-.3" data-fit="0">
-            <h1>Biography</h1>
+    <div class="main-wrapper last-news-cover-wrapper" style="position:relative;">
+        <section class="section"><!-- Last News -->
+            <h1>Tours and Appearances</h1>
             <div class="spacer"></div>
-            <div class="sec-content">
-                <p style="text-align: center;">Owen Hamlin is an emerging American singer-songwriter,
-                    multi-instrumentalist, and producer based in
-                    Los Angeles. With a growing reputation for electrifying live performances and coverage from
-                    tastemaker outlets, he’s quickly becoming one to watch. Owen’s music is defined by its raw emotional
-                    depth and the seamless fusion of electric and acoustic sounds. His creative process centers on
-                    capturing the spark of initial inspiration—resulting in songs that reflect an honest and unfiltered
-                    artistic vision.</p>
+            <div class="last-news-wrapper">
+                <!-- ...existing Last News content... -->
             </div>
+            <div class="clear"></div>
+            <div id="news-show"></div>
+            <section class="news-window">
+                <div class="news-content"></div><!-- AJAX Dinamic Content -->
+            </section>
+        </section><!-- end Last News -->
 
+        <!-- Overlay and Coming Soon text -->
+        <div class="coming-soon-overlay">
+            <span class="coming-soon-text">COMING SOON</span>
         </div>
-    </section>
+    </div>
+
+
     <div class="clear"></div>
     <section class="full-wrapper parallax-wrapper contact" aria-labelledby="contact-heading">
         <div class="parallax" data-velocity="-.3" data-fit="0">
@@ -507,8 +531,19 @@
                 document.getElementById('contactFormError').style.display = 'block';
             });
         };
-    </script>
 
+        document.addEventListener('scroll', function () {
+            var banner = document.getElementById('tiktok-live-banner');
+            var header = document.querySelector('.full-wrapper.header');
+            if (!banner || !header) return;
+            var bannerHeight = banner.offsetHeight;
+            if (window.scrollY <= bannerHeight) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+    </script>
 
 </body>
 
