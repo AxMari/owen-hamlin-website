@@ -45,7 +45,6 @@ A modern, responsive one-page website for Owen Hamlin, built with [HTML5 Boilerp
 ├── favicon.ico         # Favicon
 ├── humans.txt          # Team/contributors info
 ├── index.html          # Main HTML file
-├── robots.txt          # Robots exclusion
 ├── README.md           # Project overview
 ```
 
