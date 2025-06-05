@@ -21,9 +21,8 @@
 				e.preventDefault();
 			});
         }
-	});
 
-	/*Validation*/	
+       /*Validation*/
 	$("#contact").validate({
 		submitHandler: function(form) {
 			$(form).ajaxSubmit();
@@ -181,5 +180,5 @@
 		   $(".btn-play").show();
 		});
 	});
-	
-	 /* end Document Ready Function */
+       /* end Document Ready Function */
+       });
