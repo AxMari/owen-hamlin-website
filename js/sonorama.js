@@ -21,9 +21,8 @@
 				e.preventDefault();
 			});
         }
-	});
 
-	/*Validation*/	
+       /*Validation*/
 	$("#contact").validate({
 		submitHandler: function(form) {
 			$(form).ajaxSubmit();
@@ -106,7 +105,7 @@
 					$('.main-title ul li.t-current').removeClass('t-current').next().addClass('t-current');
 				}
 		};
-		myInterval = setInterval(myFunc, 5000); // Set Animation Interval in Miliseconds
+                myInterval = setInterval(myFunc, 5000); // Set Animation Interval in Milliseconds
 	}loadTitleAnimated()
 	
 	/* Dates Carousel */
@@ -181,5 +180,5 @@
 		   $(".btn-play").show();
 		});
 	});
-	
-	 /* end Document Ready Function */
+       /* end Document Ready Function */
+       });
