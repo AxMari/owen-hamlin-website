@@ -1631,10 +1631,6 @@ p.interact {
   font-style: normal;
   font-weight: 800;
 }
-.slides-1 {
-  margin-top: 60px;
-  min-height: 450px !important;
-}
 .slides-1.player {
   margin-top: 150px;
 }
@@ -1720,4 +1716,8 @@ p.interact {
   letter-spacing: 0.2em;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+#slides-1 {
+  margin-top: 60px;
+  min-height: 575px !important;
 }
