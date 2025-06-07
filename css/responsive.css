@@ -1063,3 +1063,13 @@
 /* Mobile Portrait Size to Mobile (devices and browsers) */
 @media only screen and (max-width: 320px) {
 }
+
+@media only screen and (max-width: 479px) and (orientation: portrait) {
+  .main-title .welcome.logo ul blockquote {
+    font-size: 1.35em;
+    line-height: 1.35em;
+  }
+  .main-title .welcome.logo ul blockquote .author {
+    font-size: 1em;
+  }
+}
