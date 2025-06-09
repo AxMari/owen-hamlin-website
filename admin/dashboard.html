@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="no-js orange" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard – Owen Hamlin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sonorama.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/color/orange.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="orange">
+    <div class="dashboard-container">
+        <button class="logout-btn" id="logout-btn">Logout</button>
+        <h1>Welcome to the Admin Dashboard</h1>
+        <div class="dashboard-section">
+            <h2>News Management</h2>
+            <p>Coming soon: Add, edit, or remove news posts.</p>
+        </div>
+        <div class="dashboard-section">
+            <h2>Gallery Management</h2>
+            <p>Coming soon: Upload or remove images.</p>
+        </div>
+        <!-- Add more admin sections as needed -->
+        <div class="dashboard-section">
+            <h2>Session Info</h2>
+            <div>
+                Hello:
+                <pre id="email"></pre>
+                Access token:
+                <pre id="access-token"></pre>
+                ID token:
+                <pre id="id-token"></pre>
+                Refresh token:
+                <pre id="refresh-token"></pre>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/oidc-client@1.11.5/dist/oidc-client.min.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>
