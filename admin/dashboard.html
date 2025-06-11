@@ -17,16 +17,41 @@
     <div class="dashboard-container">
         <button class="logout-btn" id="logout-btn">Logout</button>
         <h1>Welcome to the Admin Dashboard</h1>
-        <div class="dashboard-section">
-            <h2>News Management</h2>
-            <p>Coming soon: Add, edit, or remove news posts.</p>
-        </div>
-        <div class="dashboard-section">
-            <h2>Gallery Management</h2>
-            <p>Coming soon: Upload or remove images.</p>
-        </div>
         <!-- Add more admin sections as needed -->
         <div class="dashboard-section">
+            <div class="dashboard-section">
+                <h2>Edit Biography</h2>
+                <!-- Add this near your bio editor -->
+                <div style="margin-bottom:8px;">
+                    <strong>Preview:</strong>
+                   <p id="bio-preview" class="bio-preview-paragraph"></p>
+                </div>
+                <div>
+                    <label for="bio-editor">Bio (select text and use "Insert Link"):</label>
+                    <div id="bio-editor" contenteditable="true"
+                        style="min-height:120px; border:1px solid #ccc; padding:8px; background:#fff;"></div>
+                    <br>
+                    <input type="text" id="link-url" placeholder="Link URL" style="width: 200px;" />
+                    <input type="text" id="link-aria" placeholder="Aria-label" style="width: 200px;" />
+                    <button id="insert-link-btn" type="button">Insert Link</button>
+                    <button id="save-bio-btn" type="button">Save Bio</button>
+                    <div id="bio-save-result" style="margin-top:8px;"></div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <button id="api-call-btn">Call API</button>
+            <pre id="api-result"></pre>
             <h2>Session Info</h2>
             <div>
                 Hello:

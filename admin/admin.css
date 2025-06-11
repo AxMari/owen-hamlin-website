@@ -67,3 +67,34 @@
 .logout-btn:hover {
   background: #b97619;
 }
+
+/* Bio preview paragraph styling */
+.bio-preview-paragraph {
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #ffffff;
+  min-height: 80px;
+  border: 1px dashed #aaa;
+  padding: 8px;
+  background: #000000;
+  font-family: "Titillium Web", "Roboto", "Open Sans", Arial, sans-serif;
+  font-weight: 300;
+  /* Add any other styles from your main biography paragraph */
+}
+
+/* Orange link styling for preview (matches main site) */
+.bio-preview-paragraph .orange-link,
+.bio-preview-paragraph .orange-link:visited,
+.bio-preview-paragraph .orange-link:active {
+  color: #fda527 !important;
+  text-decoration: none !important;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.bio-preview-paragraph .orange-link:focus,
+.bio-preview-paragraph .orange-link:hover {
+  color: #b97619 !important;
+  text-decoration: none !important;
+}
