@@ -6,11 +6,12 @@
 /* General Styles */
 #mask {
   background-color: #000;
-  height: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
   z-index: 100000;
-  margin-top:-20px;
 }
 .loader {
   position: absolute;
@@ -67,69 +68,77 @@ section h1 {
 
 /* Header */
 .header {
-  height: 150px;
+  width: 100%;
+  height: 70px;
   position: fixed;
   top: 0;
+  left: 0;
   background: #000;
   z-index: 500;
 }
 .main-logo {
   float: left;
-  margin-left: 130px;
-  margin-top: 60px;
+  margin-left: 40px;
+  height: 70px;
+  display: flex;
+  align-items: center;
 }
 .main-menu {
   float: right;
-  margin-right: 130px;
-  margin-top: 60px;
+  margin-right: 40px;
+  margin-top: 18px;
 }
 .main-menu li {
   float: left;
 }
 .symbol {
-  float: left;
+  display: flex;
+  align-items: center;
   font-size: 32px;
   color: #fff;
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
-  line-height: 25px;
+  line-height: 1;
 }
 .navbar-brand {
-  float: left;
-  max-width: none;
+  display: flex;
+  align-items: flex-end;
+  height: 26px;
+  margin-right: 7px;
 }
 .symbol span {
   color: #c3121c;
+}
+.navbar-brand ul {
+  display: flex;
+  align-items: flex-end;
+  height: 26px;
+  margin: 0;
+  padding: 0;
 }
 .navbar-brand ul li {
   width: 5px;
   height: 26px;
   background: #534e4e;
   margin: 0 1px;
-  line-height: 26px;
   border-radius: 1px;
-  display: inline-block;
+  display: block;
 }
 .navbar-brand ul li:first-child {
   height: 12px;
-  /*margin-top: 14px;*/
 }
 .navbar-brand ul li:nth-child(2) {
   height: 20px;
-  /*margin-top: 6px;*/
-}
-.navbar-brand ul {
-  margin-right: 7px;
 }
 .main-menu li a {
   position: relative;
-  display: inlne-block;
-  padding: 7px 14px;
-  margin: 24px 2px 0 2px;
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 0 2px;
   border: #000 2px solid;
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   font-family: "open sans";
   font-weight: bold;
@@ -208,14 +217,27 @@ section h1 {
   right: 0;
 }
 #nav2 > a {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   text-align: left;
   text-indent: -9999px;
   position: relative;
-  background: url("../img/icons/menu-icon.png") no-repeat bottom #c3121c;
+  background-color: #000;
   float: right;
   cursor: pointer;
+}
+#nav2 > a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 18px;
+  background:
+    linear-gradient(#fda527 0%, #fda527 100%) top / 24px 3px no-repeat,
+    linear-gradient(#fda527 0%, #fda527 100%) center / 24px 3px no-repeat,
+    linear-gradient(#fda527 0%, #fda527 100%) bottom / 24px 3px no-repeat;
 }
 #nav2 > ul {
   height: auto;
@@ -223,7 +245,7 @@ section h1 {
   position: absolute;
   left: 0;
   right: 0;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 #nav2 > ul > li {
   width: 100%;
@@ -256,7 +278,7 @@ section h1 {
 
 /* Slider */
 .slider {
-  margin-top: 150px;
+  margin-top: 70px;
 }
 .slides-navigation {
   margin: 0 auto;
@@ -1290,7 +1312,7 @@ button.btn-pause:hover {
   top: 0;
   left: 0;
   width: 100%;
-  padding-top: 150px;
+  padding-top: 70px;
   text-align: center;
   /*background-size: 100%;*/
 
@@ -1365,16 +1387,19 @@ p.interact {
   width: 100%;
   height: 100%;
   opacity: 0;
-
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  transform: translateY(100%);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 .ch-grid:hover div {
   opacity: 1;
-  background-color: #c3121c;
+  transform: translateY(0);
   background-color: rgba(195, 18, 28, 0.9);
+}
+.ch-grid .ch-item {
+  transition: transform 0.25s ease;
+}
+.ch-grid:hover .ch-item {
+  transform: scale(1.05);
 }
 .p-category {
   text-decoration: none;
@@ -1437,7 +1462,7 @@ p.interact {
   /*min-width: 1000px;*/
   margin: 0;
   padding: 0;
-  margin-top: 150px;
+  margin-top: 70px;
 }
 .front-content.contact {
   width: 520px;
@@ -1634,7 +1659,7 @@ p.interact {
   font-weight: 800;
 }
 .slides-1.player {
-  margin-top: 150px;
+  margin-top: 70px;
 }
 .play-video {
   display: none;

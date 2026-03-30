@@ -140,10 +140,11 @@
     display: none;
   }
   .header {
-    height: 100px;
+    height: 60px;
   }
   .main-logo {
-    margin-top: 40px;
+    height: 60px;
+    margin-left: 20px;
   }
   #nav2 {
     display: block;
@@ -598,19 +599,22 @@
   }
   .symbol {
     font-size: 20px;
-    line-height: 22px;
   }
-  .navbar-brand ul li:first-child {
-    height: 10px;
-    margin-top: 10px;
+  .navbar-brand {
+    height: 20px;
   }
-  .navbar-brand ul li:nth-child(2) {
-    height: 16px;
-    margin-top: 4px;
+  .navbar-brand ul {
+    height: 20px;
   }
   .navbar-brand ul li {
     width: 5px;
     height: 20px;
+  }
+  .navbar-brand ul li:first-child {
+    height: 10px;
+  }
+  .navbar-brand ul li:nth-child(2) {
+    height: 16px;
   }
   .player-right {
     width: 290px;

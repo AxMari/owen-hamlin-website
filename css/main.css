@@ -233,7 +233,7 @@ a {
    ========================================================================== */
 
 .tours-header {
-  margin-top: 150px;
+  margin-top: 70px;
 }
 
 #comments {
@@ -312,4 +312,52 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+}
+
+/* ==========================================================================
+   Lightbox (replaces FancyBox)
+   ========================================================================== */
+#lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 9999;
+}
+#lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10001;
+}
+.lightbox-close:hover {
+  color: #c3121c;
+}
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+.lightbox-content img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+.lightbox-content iframe {
+  width: 80vw;
+  height: 45vw;
+  max-height: 80vh;
 }

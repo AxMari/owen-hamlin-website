@@ -83,15 +83,7 @@ jQuery(document).ready(function($) {
 		setProjects();
 	}
 	loadIsotope();// end Portfolio Isotope
-	
-	/* Call HoverDir Portfolio RollOver */
-	function loadHoverDir(){
-		$(' #i-portfolio > .ch-grid').each( function() { $(this).hoverdir({
-			hoverDelay : 5
-		}); } );
-	}
-	loadHoverDir()
-	
+
 	/* Main Menu Section Selector */
 	function loadMenuSelector(){
 		$('.main-menu').onePageNav({
@@ -101,7 +93,7 @@ jQuery(document).ready(function($) {
 			end: function() {
 			console.log('stop');
 			},
-		scrollOffset: 150 // header Height
+		scrollOffset: 70 // header Height
 		});
 	}
 	loadMenuSelector()
@@ -115,25 +107,7 @@ jQuery(document).ready(function($) {
       });
 	}
 	loadsuperslides();
-	
-	/* FancyBox */
-	$(".fancybox").fancybox();
-	/*  Media helper. Group items, disable animations, hide arrows, enable media and button helpers */
-	$('.fancybox-media')
-		.attr('rel', 'media-gallery')
-		.fancybox({
-			openEffect : 'none',
-			closeEffect : 'none',
-			prevEffect : 'none',
-			nextEffect : 'none',
 
-			arrows : false,
-			helpers : {
-				media : {},
-				buttons : {}
-			}
-		});
-	
 	/* Audio Player */
       function loadAudio(){
         // Setup the player to autoplay the next track
