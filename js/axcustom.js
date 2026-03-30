@@ -45,3 +45,44 @@ function onPlayerStateChange(event) {
     document.querySelectorAll("audio").forEach((audio) => audio.pause());
   }
 }
+
+// Simple image slider
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.slides-container');
+  if (!container) return;
+
+  const slides = container.querySelectorAll('img');
+  if (slides.length === 0) return;
+
+  let current = 0;
+  slides[0].classList.add('active');
+
+  function nextSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  // Auto-rotate every 5 seconds
+  setInterval(nextSlide, 5000);
+
+  // Navigation buttons
+  const nextBtn = document.querySelector('.slides-navigation .next');
+  const prevBtn = document.querySelector('.slides-navigation .prev');
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      nextSlide();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      slides[current].classList.remove('active');
+      current = (current - 1 + slides.length) % slides.length;
+      slides[current].classList.add('active');
+    });
+  }
+});
