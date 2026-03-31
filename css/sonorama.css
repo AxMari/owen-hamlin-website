@@ -1743,6 +1743,10 @@ p.interact {
 .footer-container .social-ico.s-instagram:after {
   background-image: url("../img/icons/socials/instagram.png");
 }
+.footer-container .social-ico.s-kofi:after {
+  background-image: url("../img/icons/socials/kofi.png");
+}
+
 
 .footer-container .social-ico:hover {
   background-color: #c3121c;
