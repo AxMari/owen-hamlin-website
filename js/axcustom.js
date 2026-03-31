@@ -40,11 +40,80 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerStateChange(event) {
-  // 1 means playing
+  // 1 means playing - pause audio when YouTube starts
   if (event.data === YT.PlayerState.PLAYING) {
     document.querySelectorAll("audio").forEach((audio) => audio.pause());
+    document.body.classList.remove('music-playing');
   }
 }
+
+// Navbar audio player
+document.addEventListener('DOMContentLoaded', function() {
+  const playBtn = document.getElementById('nav-play-btn');
+  const audio = document.getElementById('main-audio');
+  const playlistData = document.querySelectorAll('#playlist-data span');
+  let currentTrack = 0;
+
+  if (!playBtn || !audio) return;
+
+  // Play/pause toggle
+  playBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  // Update UI when audio plays
+  audio.addEventListener('play', function() {
+    document.body.classList.add('music-playing');
+  });
+
+  // Update UI when audio pauses
+  audio.addEventListener('pause', function() {
+    document.body.classList.remove('music-playing');
+  });
+
+  // When track ends, play next
+  audio.addEventListener('ended', function() {
+    currentTrack = (currentTrack + 1) % playlistData.length;
+    audio.src = playlistData[currentTrack].dataset.src;
+    audio.play();
+  });
+
+  // Autoplay - try immediately, fallback to first user interaction
+  let hasAutoPlayed = false;
+  function tryAutoplay() {
+    if (hasAutoPlayed) return;
+    audio.play().then(function() {
+      hasAutoPlayed = true;
+      removeAutoplayListeners();
+    }).catch(function() {
+      // Autoplay blocked, will try again on interaction
+    });
+  }
+
+  function removeAutoplayListeners() {
+    document.removeEventListener('click', tryAutoplay);
+    document.removeEventListener('scroll', tryAutoplay);
+    document.removeEventListener('mousemove', tryAutoplay);
+    document.removeEventListener('keydown', tryAutoplay);
+    document.removeEventListener('touchstart', tryAutoplay);
+  }
+
+  // Try autoplay immediately
+  tryAutoplay();
+
+  // Also try on any user interaction
+  document.addEventListener('click', tryAutoplay);
+  document.addEventListener('scroll', tryAutoplay);
+  document.addEventListener('mousemove', tryAutoplay, { once: true });
+  document.addEventListener('keydown', tryAutoplay);
+  document.addEventListener('touchstart', tryAutoplay);
+});
 
 // Simple image slider
 document.addEventListener('DOMContentLoaded', function() {

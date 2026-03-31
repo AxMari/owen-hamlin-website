@@ -55,14 +55,12 @@
     </div>
     <div class="full-wrapper header">
         <div class="main-logo">
-            <a class="symbol" href="#" role="button" aria-label="Home">
-                <div class="navbar-brand">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
+            <a class="symbol" href="#anchor0" aria-label="Home">
+                <button class="play-btn" id="nav-play-btn" aria-label="Play music" title="Play music">
+                    <span class="play-icon"></span>
+                    <span class="pause-icon"></span>
+                </button>
+                <span class="eq-bars"><span></span><span></span><span></span></span>
                 Owen Hamlin<span>.</span>
             </a>
         </div>
@@ -150,20 +148,12 @@
         </div>
     </div>
 
-    <div class="full-wrapper">
-        <div class="player-container"> <!-- Audio Player -->
-            <div class="audio-player">
-                <audio id="main-audio" preload="none" src="audio/mp3/oldthingsdemo.mp3"></audio>
-                <ol class="home-playlist">
-                    <li class="playing"><a href="#" data-track="Owen Hamlin - Blackhole"
-                            data-src="audio/mp3/blackholedemo.mp3">Blackhole demo</a></li>
-                    <li><a href="#" data-track="Owen Hamlin - And It Was Gone"
-                            data-src="audio/mp3/anditwasgonedemo.mp3">And It Was Gone demo</a></li>
-                    <li><a href="#" data-track="Owen Hamlin - Old Things" data-src="audio/mp3/oldthingsdemo.mp3">Old
-                            Things demo</a></li>
-                </ol>
-            </div>
-        </div> <!-- end Audio Player -->
+    <!-- Hidden audio player (controlled by navbar button) -->
+    <audio id="main-audio" preload="auto" src="audio/mp3/blackholedemo.mp3" style="display:none;"></audio>
+    <div id="playlist-data" style="display:none;">
+        <span data-src="audio/mp3/blackholedemo.mp3">Blackhole demo</span>
+        <span data-src="audio/mp3/anditwasgonedemo.mp3">And It Was Gone demo</span>
+        <span data-src="audio/mp3/oldthingsdemo.mp3">Old Things demo</span>
     </div>
 
     <div id="anchor01"></div>

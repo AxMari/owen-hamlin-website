@@ -195,17 +195,123 @@ section h1 {
     height: 7px;
   }
 }
-.navbar-brand ul li:nth-child(1) {
+/* Bars animate only when music is playing */
+.music-playing .navbar-brand ul li:nth-child(1) {
   -moz-animation: move1 infinite 0.5s linear;
   -webkit-animation: move1 infinite 0.5s linear;
 }
-.navbar-brand ul li:nth-child(2) {
+.music-playing .navbar-brand ul li:nth-child(2) {
   -moz-animation: move2 infinite 0.7s linear;
   -webkit-animation: move2 infinite 0.7s linear;
 }
-.navbar-brand ul li:nth-child(3) {
+.music-playing .navbar-brand ul li:nth-child(3) {
   -moz-animation: move3 infinite 1s linear;
   -webkit-animation: move3 infinite 1s linear;
+}
+.music-playing .navbar-brand ul li {
+  background: #c3121c;
+}
+
+/* Play/Pause button in navbar */
+.play-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #534e4e;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.play-btn:hover {
+  border-color: #fda527;
+  transform: scale(1.05);
+}
+.play-btn .play-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 2px;
+  transition: border-color 0.2s;
+}
+.play-btn:hover .play-icon {
+  border-left-color: #fda527;
+}
+.play-btn .pause-icon {
+  display: none;
+  gap: 3px;
+}
+.play-btn .pause-icon::before,
+.play-btn .pause-icon::after {
+  content: '';
+  width: 4px;
+  height: 12px;
+  background: #fff;
+  display: block;
+}
+.music-playing .play-btn {
+  border-color: #fda527;
+}
+.music-playing .play-btn .play-icon {
+  display: none;
+}
+.music-playing .play-btn .pause-icon {
+  display: flex;
+}
+.music-playing .play-btn .pause-icon::before,
+.music-playing .play-btn .pause-icon::after {
+  background: #fda527;
+}
+
+/* Equalizer bars - bottom aligned with text */
+.eq-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 24px;
+  margin-left: 4px;
+  margin-right: 14px;
+  vertical-align: baseline;
+}
+.eq-bars span {
+  width: 4px;
+  background: #534e4e;
+  border-radius: 1px;
+  height: 8px;
+  transition: background 0.2s;
+}
+
+/* When music is playing - animate the bars */
+.music-playing .eq-bars span {
+  background: #fda527;
+}
+.music-playing .eq-bars span:nth-child(1) {
+  animation: eq1 0.5s ease-in-out infinite;
+}
+.music-playing .eq-bars span:nth-child(2) {
+  animation: eq2 0.7s ease-in-out infinite;
+}
+.music-playing .eq-bars span:nth-child(3) {
+  animation: eq3 0.6s ease-in-out infinite;
+}
+@keyframes eq1 {
+  0%, 100% { height: 6px; }
+  50% { height: 18px; }
+}
+@keyframes eq2 {
+  0%, 100% { height: 14px; }
+  50% { height: 5px; }
+}
+@keyframes eq3 {
+  0%, 100% { height: 10px; }
+  50% { height: 20px; }
 }
 
 /* Jump Menu */
