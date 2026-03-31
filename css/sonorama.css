@@ -93,7 +93,7 @@ section h1 {
 }
 .symbol {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   font-size: 32px;
   color: #fff;
   text-transform: uppercase;
@@ -278,7 +278,7 @@ section h1 {
   height: 24px;
   margin-left: 4px;
   margin-right: 14px;
-  vertical-align: baseline;
+  margin-bottom: 2px;
 }
 .eq-bars span {
   width: 4px;
@@ -321,6 +321,11 @@ section h1 {
   position: absolute;
   top: 0;
   right: 0;
+  pointer-events: none;
+}
+#nav2 > a,
+#nav2 > ul {
+  pointer-events: auto;
 }
 #nav2 > a {
   width: 60px;
