@@ -1,8 +1,214 @@
-<div class="close-btn"></div>
-<div class="disc-cover">
-	<div><img src="img/discography/disc-02.jpg" /></div>
-</div>
-<div>COMING SOON</div>
+<div class="close-btn" title="Close"></div>
 
+<div class="new-album-preview">
+	<div class="preview-header">
+		<img src="img/discography/newalbum.jpg" alt="New Album cover" class="preview-album-art" />
+		<div class="preview-info">
+			<h2>New Album</h2>
+			<p class="preview-status">Coming Soon</p>
+		</div>
+	</div>
+
+	<div class="preview-tracklist">
+		<h3>Preview Tracks</h3>
+		<ol class="track-list">
+			<li>
+				<span class="track-title">Another Day</span>
+				<audio controls preload="none" src="audio/preview/01_Another-Day.m4a"></audio>
+			</li>
+			<li>
+				<span class="track-title">Gave You My Best</span>
+				<audio controls preload="none" src="audio/preview/02_Gave-You-My-Best.m4a"></audio>
+			</li>
+			<li>
+				<span class="track-title">You and Me</span>
+				<audio controls preload="none" src="audio/preview/03_You-and-Me.m4a"></audio>
+			</li>
+			<li>
+				<span class="track-title">By My Side</span>
+				<audio controls preload="none" src="audio/preview/04_By-My-Side.m4a"></audio>
+			</li>
+			<li>
+				<span class="track-title">Await My Fate</span>
+				<audio controls preload="none" src="audio/preview/05_Await-My-Fate.m4a"></audio>
+			</li>
+			<li>
+				<span class="track-title">Stand Tall</span>
+				<audio controls preload="none" src="audio/preview/06_Stand-Tall.m4a"></audio>
+			</li>
+		</ol>
+	</div>
 </div>
-<div class="clear"></div>
+
+<style>
+.new-album-preview {
+	padding: 30px;
+	max-width: 550px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.new-album-preview .preview-header {
+	display: flex;
+	gap: 25px;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+.new-album-preview .preview-album-art {
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.new-album-preview .preview-info h2 {
+	margin: 0 0 10px 0;
+	color: #fff;
+	font-size: 1.8em;
+}
+
+.new-album-preview .preview-status {
+	color: #ff9900;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin: 0;
+}
+
+.new-album-preview .preview-tracklist h3 {
+	color: #ff9900;
+	margin-bottom: 20px;
+	font-size: 1.2em;
+}
+
+.new-album-preview .track-list {
+	list-style: decimal;
+	padding-left: 25px;
+	margin: 0;
+}
+
+.new-album-preview .track-list li {
+	margin: 0 0 20px 0 !important;
+	padding: 0 !important;
+	color: #fff;
+	clear: both !important;
+	float: none !important;
+	width: auto !important;
+	height: auto !important;
+	display: block !important;
+}
+
+.new-album-preview .track-list .track-title {
+	display: block !important;
+	margin: 0 0 8px 0 !important;
+	padding: 0 !important;
+	font-size: 1.1em;
+	color: #fff;
+	transition: color 0.2s ease;
+	width: auto !important;
+	float: none !important;
+	position: static !important;
+	top: auto !important;
+	line-height: 1.4 !important;
+}
+
+.new-album-preview .track-list li.playing .track-title {
+	color: #ff9900;
+}
+
+.new-album-preview .track-list audio {
+	display: block !important;
+	width: calc(100% - 20px) !important;
+	max-width: 400px;
+	height: 36px;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+@media (max-width: 795px) {
+	.new-album-preview {
+		padding: 15px;
+		max-width: 100%;
+	}
+
+	.new-album-preview .preview-header {
+		flex-direction: row;
+		text-align: left;
+		gap: 15px;
+		margin-bottom: 20px;
+	}
+
+	.new-album-preview .preview-album-art {
+		width: 80px;
+		height: 80px;
+		flex-shrink: 0;
+	}
+
+	.new-album-preview .preview-info h2 {
+		font-size: 1.2em;
+		margin-bottom: 5px;
+	}
+
+	.new-album-preview .preview-status {
+		font-size: 0.9em;
+	}
+
+	.new-album-preview .preview-tracklist h3 {
+		margin-bottom: 12px;
+		font-size: 1em;
+	}
+
+	.new-album-preview .track-list {
+		padding-left: 20px;
+	}
+
+	.new-album-preview .track-list li {
+		margin: 0 0 16px 0 !important;
+	}
+
+	.new-album-preview .track-list .track-title {
+		margin: 0 0 6px 0 !important;
+		font-size: 0.95em;
+	}
+
+	.new-album-preview .track-list audio {
+		width: calc(100% - 30px) !important;
+		height: 32px;
+	}
+}
+</style>
+
+<script>
+(function() {
+	var audios = document.querySelectorAll('.new-album-preview .track-list audio');
+	for (var i = 0; i < audios.length; i++) {
+		(function(audio) {
+			var li = audio.parentElement;
+
+			audio.onplay = function() {
+				var allLis = document.querySelectorAll('.new-album-preview .track-list li');
+				for (var j = 0; j < allLis.length; j++) {
+					allLis[j].classList.remove('playing');
+				}
+				li.classList.add('playing');
+
+				var allAudios = document.querySelectorAll('.new-album-preview .track-list audio');
+				for (var k = 0; k < allAudios.length; k++) {
+					if (allAudios[k] !== audio && !allAudios[k].paused) {
+						allAudios[k].pause();
+					}
+				}
+			};
+
+			audio.onpause = function() {
+				li.classList.remove('playing');
+			};
+
+			audio.onended = function() {
+				li.classList.remove('playing');
+			};
+		})(audios[i]);
+	}
+})();
+</script>
