@@ -407,6 +407,10 @@
     margin-bottom: 40px;
     padding-top: 65px;
   }
+  /* Ensure spacing after discography section on mobile */
+  .disc-container {
+    margin-bottom: 40px;
+  }
   /* Mobile inline project window - appears directly after clicked album */
   .project-window-mobile {
     width: 100%;
