@@ -22,6 +22,10 @@ function removeMobileWindow() {
 }
 
 function openDisc(url) {
+  // Pause navbar audio when opening any album
+  var navAudio = document.getElementById('main-audio');
+  if (navAudio) navAudio.pause();
+
   fetch(url)
     .then(function(response) { return response.text(); })
     .then(function(data) {

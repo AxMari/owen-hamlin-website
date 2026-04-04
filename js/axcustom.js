@@ -30,9 +30,9 @@ document.getElementById("copyright").textContent = `© ${startYear}${
   currentYear > startYear ? "–" + currentYear : ""
 } Owen Hamlin. All rights reserved.`;
 
-let ytPlayer;
+window.ytPlayer = null;
 function onYouTubeIframeAPIReady() {
-  ytPlayer = new YT.Player("youtube-player", {
+  window.ytPlayer = new YT.Player("youtube-player", {
     events: {
       onStateChange: onPlayerStateChange,
     },
@@ -40,10 +40,19 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerStateChange(event) {
-  // 1 means playing - pause audio when YouTube starts
+  // 1 means playing - pause all audio when YouTube starts
   if (event.data === YT.PlayerState.PLAYING) {
     document.querySelectorAll("audio").forEach((audio) => audio.pause());
     document.body.classList.remove('music-playing');
+    // Close any lightbox video that might be playing
+    var lightboxOverlay = document.getElementById('lightbox-overlay');
+    if (lightboxOverlay && lightboxOverlay.classList.contains('active')) {
+      lightboxOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(function() {
+        lightboxOverlay.querySelector('.lightbox-content').innerHTML = '';
+      }, 300);
+    }
   }
 }
 
@@ -70,6 +79,21 @@ document.addEventListener('DOMContentLoaded', function() {
   // Update UI when audio plays
   audio.addEventListener('play', function() {
     document.body.classList.add('music-playing');
+    // Pause YouTube videos when navbar audio plays
+    try {
+      if (window.ytPlayer && window.ytPlayer.getPlayerState && window.ytPlayer.getPlayerState() === 1) {
+        window.ytPlayer.pauseVideo();
+      }
+    } catch(e) {}
+    // Close any lightbox video
+    var lightboxOverlay = document.getElementById('lightbox-overlay');
+    if (lightboxOverlay && lightboxOverlay.classList.contains('active')) {
+      lightboxOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(function() {
+        lightboxOverlay.querySelector('.lightbox-content').innerHTML = '';
+      }, 300);
+    }
   });
 
   // Update UI when audio pauses
