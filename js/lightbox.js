@@ -59,6 +59,16 @@
         videoId = url.pathname.split('/').pop();
       }
       if (videoId) {
+        // Pause all audio when opening video
+        document.querySelectorAll('audio').forEach(a => a.pause());
+
+        // Pause embedded YouTube player
+        try {
+          if (window.ytPlayer && window.ytPlayer.getPlayerState && window.ytPlayer.getPlayerState() === 1) {
+            window.ytPlayer.pauseVideo();
+          }
+        } catch(e) {}
+
         openLightbox(`
           <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1"
                   frameborder="0" allowfullscreen

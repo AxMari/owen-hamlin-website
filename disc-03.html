@@ -187,6 +187,26 @@
 			var li = audio.parentElement;
 
 			audio.onplay = function() {
+				// Pause navbar audio when playing preview track
+				var navAudio = document.getElementById('main-audio');
+				if (navAudio) navAudio.pause();
+
+				// Pause YouTube videos
+				try {
+					if (window.ytPlayer && window.ytPlayer.getPlayerState && window.ytPlayer.getPlayerState() === 1) {
+						window.ytPlayer.pauseVideo();
+					}
+				} catch(e) {}
+				// Close any lightbox video
+				var lightboxOverlay = document.getElementById('lightbox-overlay');
+				if (lightboxOverlay && lightboxOverlay.classList.contains('active')) {
+					lightboxOverlay.classList.remove('active');
+					document.body.style.overflow = '';
+					setTimeout(function() {
+						lightboxOverlay.querySelector('.lightbox-content').innerHTML = '';
+					}, 300);
+				}
+
 				var allLis = document.querySelectorAll('.new-album-preview .track-list li');
 				for (var j = 0; j < allLis.length; j++) {
 					allLis[j].classList.remove('playing');
